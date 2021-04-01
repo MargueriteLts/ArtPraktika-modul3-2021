@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+
+    html {
+    min-height: 100vh;
+    }
+
+    body {
+    margin: 0;
+    padding: 0;
+    background-color: #22173f;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    }
+
+    svg {
+    position: absolute;
+    top: 100px;
+    }
+    .dot {
+      display: block;
+     }
+    .hide {
+      display: none;
+    }
+    .button {
+    opacity: 0;
+    cursor: pointer;
+    }
+    .button:hover {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,2));
+    }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 548.91">
+  <path id="grey" d="M5689.81,123.36H3274.46V524.78H2918.51V424.42H2155.77V544.85H1367.6L1215.05,364.21H986.23V223.72H196V389.27h522.4v95.37H401.46V585H172.64v80.28h-178" transform="translate(5.34 -119.86)" style="fill:none;stroke:#7e7e7e;stroke-width:7px"/>
+    <!-- <g class="dot">
+      <circle cx="380.92" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+    </g> -->
+    <g class="dot">
+      <circle cx="380.92" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+      <circle cx="331.49" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+      <circle cx="282.06" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+      <circle cx="232.62" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+      <circle cx="183.19" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+      <circle cx="133.76" cy="104.7" r="17.79" style="fill:#fff;stroke:#7e7e7e;stroke-width:3px"/>
+    </g>
+  <g id="Layer_5" data-name="Layer 5">
+    <path d="M380.6,189.39l-.25.14v3.4l.25.15a10,10,0,0,1,0,17.4l-.25.15V214l.25.14a10.05,10.05,0,1,1-10,0l.25-.14v-3.4l-.25-.15a10,10,0,0,1,0-17.4l.25-.15v-3.4l-.25-.14a10.05,10.05,0,1,1,10,0Z" transform="translate(5.34 -119.86)" style="fill:#fff;stroke:#000"/>
+    <circle cx="380.91" cy="60.82" r="5.27" style="fill:#3bc962"/>
+    <circle cx="380.91" cy="81.92" r="5.27" style="fill:#f55e5d"/>
+    <circle cx="380.91" cy="103.01" r="5.27" style="fill:#7e7e7e"/>
+  </g>
+
+  <g class="button">
+    <circle cx="380.92" cy="104.7" r="17.79" style="fill:#fff; stroke: black; stroke-width: 1px;"/>
+    <circle cx="380.91" cy="103.01" r="5.27" style="fill:#7e7e7e"/>
+  </g>
+</svg>
+
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+//register the plugin
+gsap.registerPlugin(MotionPathPlugin);
+
+// set the element to rotate from it's center
+gsap.set([".dot", ".dot--self"], {
+xPercent: -50,
+yPercent: -50,
+transformOrigin: "50% 50%"
+});
+
+// animate the rocket along the path
+gsap.to(".dot", {
+  motionPath: {
+      path: "#grey",
+      align: "#grey",
+      autoRotate: true,
+      start: -0.229,
+      end: -0.3,
+  },
+  duration: 1.5,
+  repeat: -1,
+  immediateRender: true,
+});
+
+// animate the rocket along the path
+//gsap.to(".rocket--self", {
+  //motionPath: {
+      //path: "#grey",
+      //align: "self",
+      //autoRotate: true,
+  //},
+  //duration: 5,
+  //delay: 1,
+  //repeat: 1,
+  //ease: "power1.inOut",
+  //immediateRender: true,
+//});
+// edit the motion path
+//MotionPathHelper.create(".rocket");
+</script>
+
+<script>
+    $(document).ready(function(){
+      $(".button").click(function(){
+          // if ($(".dot").hasClass("hide")) {
+            $(".dot").toggleClass("hide")
+          })
+    })
+</script>
+
+  </body>
+</html>
