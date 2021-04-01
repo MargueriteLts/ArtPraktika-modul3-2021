@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/parallax.js" type="text/javascript"></script>
+    <script>
+      var scene = document.getElementById('scene');
+      var parallax = new Parallax(scene);
+
+    </script>
+    <style media="screen">
+    .parallaxContainer {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-attachment: fixed;
+    }
+    .prllx {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    }
+    .prllx img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="parallaxContainer">
+      <ul id="scene">
+        <li class="layer" data-depth="0">
+          <img src="planet.svg" alt="">
+        </li>
+        <li class="layer" data-depth="0">
+          <img src="parallax1.svg" alt="">
+        </li>
+        <li class="layer" data-depth="0">
+          <img src="parallax2.svg" alt="">
+        </li>
+        <li class="layer" data-depth="0">
+          <img src="parallax3.svg" alt="">
+        </li>
+      </ul>
+    </div>
+
+    <div class="prllx">
+      <img src="images/planet.svg" alt=fullplanet data-speed="-5" class="layer">
+      <img src="images/parallax1.svg" alt=fullplanet data-speed="2" class="layer">
+      <img src="images/parallax2.svg" alt=fullplanet data-speed="-7" class="layer">
+      <img src="images/parallax3.svg" alt=fullplanet data-speed="9" class="layer">
+    </div>
+    <script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+    function parallax(e){
+      this.querySelectorAll('.layer').forEach(Layer => {
+        const speed = layer.getAttribute('data-speed')
+
+        const x = (window.innerWidth - e.pageX*speed)
+        const y = (window.innerHeight - e.pageY*speed)
+
+        layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+      })
+    }
+    </script>
+  </body>
+</html>
