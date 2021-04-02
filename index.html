@@ -34,7 +34,14 @@
         $(".cloud").draggable();
       });
     </script>
-
+    <script>
+    $( function() {
+      $( ".resizable" ).resizable({
+        alsoResize: ".also"
+      });
+      $( ".also" ).resizable();
+    });
+    </script>
 
     <style media="screen">
     body {
@@ -121,6 +128,9 @@
       100% { transform: translateX(100%); }
     }
     .resizable {
+      width: 15vw;
+    }
+    .also {
       width: 15vw;
     }
 
@@ -536,6 +546,11 @@
       <img src="images/cloud.svg" alt="cloud9" class="resizable" style="position: absolute; left: 160vw; top: 50vh;">
       <img src="images/cloud.svg" alt="cloud10" class="resizable" style="position: absolute; left: 170vw; top: 30vh;">
       <img src="images/cloud.svg" alt="cloud11" class="resizable" style="position: absolute; left: 210vw; top: 20vh;">
+
+      <img src="images/cloud.svg" alt="cloud12" class="also" style="position: absolute; left: 100vw; top: 10vh;">
+      <img src="images/cloud.svg" alt="cloud13" class="also" style="position: absolute; left: 800vw; top: 5vh;">
+      <img src="images/cloud.svg" alt="cloud14" class="also" style="position: absolute; left: 130vw; top: 15vh;">
+
 
 <!-- cursor -->
     <!-- <div class="cursor">
