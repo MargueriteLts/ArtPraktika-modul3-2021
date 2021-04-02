@@ -106,6 +106,20 @@
     	/* background: url(background.jpg); */
     	/* background-attachment: fixed; */
     }
+    /* .movcloud {
+      animation: animate calc(8s * var()) linear infinite;
+    } */
+    .movcloud {
+      position: absolute;
+      bottom: 0;
+      opacity: 0.8;
+      width: 400vw;
+      animation: animate calc(30s * var(--i)) linear infinite;
+    }
+    @keyframes animate {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
     .resizable {
       width: 15vw;
     }
@@ -228,8 +242,12 @@
     		var parallax = new Parallax(scene);
     	</script>
 
-      <img src="images/movcloud1.svg" alt="movingcloud1" style="position: absolute; left: 0; bottom: 0; width: 400vw; opacity: .8;">
-      <img src="images/movcloud2.svg" alt="movingcloud2" style="position: absolute; left: 80vw; bottom: 0; width: 320vw; opacity: .8;">
+      <!-- <img src="images/movcloud1.svg" alt="movingcloud1" class="movcloud" style="position: absolute; left: 0; bottom: 0; width: 400vw; opacity: .8;">
+      <img src="images/movcloud2.svg" alt="movingcloud2" class="movcloud" style="position: absolute; left: 80vw; bottom: 0; width: 320vw; opacity: .8;"> -->
+
+
+        <img class="movcloud" src="images/movcloud1.svg" alt="movingcloud1" style="--i:1">
+        <img class="movcloud" src="images/movcloud2.svg" alt="movingcloud2" style="--i:3">
 
 
       <svg class="pathsMyBrowser" xmlns="http://www.w3.org/2000/svg" viewBox="5 23 5690 680">
